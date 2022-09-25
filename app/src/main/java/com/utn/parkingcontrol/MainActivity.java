@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     public void LoginActivity (View view) {
         setContentView(R.layout.activity_main);
     }
+    public void HomeActivity () {
+        setContentView(R.layout.activity_home_app);
+    }
     public void Registrar (View view) {
         et_name = (EditText)findViewById(R.id.editTextName);
         et_email = (EditText)findViewById(R.id.editTextEmail);
@@ -46,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
             {
                 if (pass.equals(pass2))
                 {
+
+                    Cursor fila = db.rawQuery
+                            ("select * from users where name = '" + name +"'", null);
+
+                    if (fila.moveToFirst())
+                    {
+                        Toast.makeText(this, "El nombre de usuario no esta disponible", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+
                     ContentValues registro = new ContentValues();
                     registro.put("name",name);
                     registro.put("email",email);
@@ -59,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     et_pass.setText("");
                     et_pass2.setText("");
                     LoginActivity(view);
+                    }
                 }
                 else
                 {
@@ -75,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         if (pass.equals(passSQL))
         {
             Toast.makeText(this, "Contraseña correcta", Toast.LENGTH_SHORT).show();
+            HomeActivity();
         }
         else
         {
