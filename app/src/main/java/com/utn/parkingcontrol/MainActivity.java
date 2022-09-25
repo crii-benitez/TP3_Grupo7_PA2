@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     public void RegisterActivity (View view) {
         setContentView(R.layout.register_user);
     }
+    public void LoginActivity (View view) {
+        setContentView(R.layout.activity_main);
+    }
     public void Registrar (View view) {
         et_name = (EditText)findViewById(R.id.editTextName);
         et_email = (EditText)findViewById(R.id.editTextEmail);
@@ -56,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
             }
 
     }
+    public void validarContrseña (String pass, String passSQL) {
+        if (pass.equals(passSQL))
+        {
+            Toast.makeText(this, "Contraseña correcta", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(this, "Contraseña incorrecta: ", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     public void BuscarUser (View view) {
         et_name = (EditText)findViewById(R.id.txtUsuario);
@@ -65,24 +79,26 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = admin.getWritableDatabase();
 
         String name = et_name.getText().toString();
+        String pass = et_pass.getText().toString();
 
-        if (!name.isEmpty())
+        if (!name.isEmpty()&&!pass.isEmpty())
         {
             Cursor fila = db.rawQuery
                    ("select pass from users where name = '" + name +"'", null);
 
-            if (fila.moveToFirst()){
-                et_pass.setText(fila.getString(0));
-                  db.close();
+            if (fila.moveToFirst()) {
+                String passSQL = fila.getString(0);
+                validarContrseña(pass,passSQL);
                 }
                 else {
-                Toast.makeText(this, "No existe el usuario", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No existe el usuario, debe registrarse", Toast.LENGTH_SHORT).show();
                  }
 
          }
          else{
             Toast.makeText(this, "Debes llenar todos lo campos", Toast.LENGTH_SHORT).show();
           }
+        db.close();
 
     }
 
