@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="RegisterActivity"
     tools:context=".MainActivity">
 
     <TextView
@@ -61,6 +62,7 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="28dp"
         android:backgroundTint="#CBCCD3"
+        android:onClick="BuscarUser"
         android:text="Iniciar Sesión"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -96,9 +98,10 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="8dp"
         android:autoText="false"
+        android:onClick="RegisterActivity"
         android:text="Registrarse"
         android:textAllCaps="false"
         android:textColor="#448AFF"
