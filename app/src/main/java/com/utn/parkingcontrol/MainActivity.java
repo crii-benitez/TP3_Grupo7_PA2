@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public void LoginActivity (View view) {
         setContentView(R.layout.activity_main);
     }
-    public void HomeActivity () {
-        setContentView(R.layout.activity_home_app);
+    public void HomeApp () {
+        setContentView(R.layout.home_app);
     }
     public void Registrar (View view) {
         et_name = (EditText)findViewById(R.id.editTextName);
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         if (pass.equals(passSQL))
         {
             Toast.makeText(this, "Contraseña correcta", Toast.LENGTH_SHORT).show();
-            HomeActivity();
+            HomeApp();
         }
         else
         {
