@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText et_name, et_email,et_pass;
+    private EditText et_name, et_email,et_pass,et_pass2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         et_name = (EditText)findViewById(R.id.editTextName);
         et_email = (EditText)findViewById(R.id.editTextEmail);
         et_pass = (EditText)findViewById(R.id.editTextPass);
+        et_pass2 = (EditText)findViewById(R.id.editTextPass2);
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -39,25 +40,36 @@ public class MainActivity extends AppCompatActivity {
         String name = et_name.getText().toString();
         String email = et_email.getText().toString();
         String pass = et_pass.getText().toString();
+        String pass2 = et_pass2.getText().toString();
 
-        if (!name.isEmpty()&&!email.isEmpty()&&!pass.isEmpty())
+        if (!name.isEmpty()&&!email.isEmpty()&&!pass.isEmpty()&&!pass2.isEmpty())
             {
-                ContentValues registro = new ContentValues();
-                registro.put("name",name);
-                 registro.put("email",email);
-                 registro.put("pass",pass);
+                if (pass.equals(pass2))
+                {
+                    ContentValues registro = new ContentValues();
+                    registro.put("name",name);
+                    registro.put("email",email);
+                    registro.put("pass",pass);
 
-                 db.insert("users", null ,registro);
-           db.close();
-                 Toast.makeText(this, "Datos guardados", Toast.LENGTH_SHORT).show();
-                   et_name.setText("");
-                   et_email.setText("");
-            et_pass.setText("");
+                    db.insert("users", null ,registro);
+
+                    Toast.makeText(this, "Datos guardados", Toast.LENGTH_SHORT).show();
+                    et_name.setText("");
+                    et_email.setText("");
+                    et_pass.setText("");
+                    et_pass2.setText("");
+                    LoginActivity(view);
+                }
+                else
+                {
+                    Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                }
+
                }
             else{
             Toast.makeText(this, "Debes llenar todos lo campos", Toast.LENGTH_SHORT).show();
             }
-
+        db.close();
     }
     public void validarContrseña (String pass, String passSQL) {
         if (pass.equals(passSQL))

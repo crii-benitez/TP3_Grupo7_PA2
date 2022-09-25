@@ -100,7 +100,7 @@
         android:id="@+id/txtpassword"
         android:layout_width="305dp"
         android:layout_height="39dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
