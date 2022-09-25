@@ -4,10 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TUSI_local/PA2/TP3_Grupo7/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/register_user.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/mipmap-anydpi-v26/userIcon.xml" value="0.107" />
-        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/mipmap-anydpi-v26/userIcon_round.xml" value="0.136" />
+        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/app_bar_home_app.xml" value="0.115625" />
+        <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/home_app.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>

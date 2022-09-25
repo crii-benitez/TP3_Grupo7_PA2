@@ -35,38 +35,25 @@
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Nombre de usuario"
         android:inputType="textPersonName"
-        android:text="Nombre de usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
-    <EditText
-        android:id="@+id/txtpassword"
-        android:layout_width="308dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Contraseña"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
-
     <Button
         android:id="@+id/btnIniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#CBCCD3"
         android:onClick="BuscarUser"
         android:text="Iniciar Sesión"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtpassword" />
 
@@ -98,13 +85,26 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:autoText="false"
         android:onClick="RegisterActivity"
         android:text="Registrarse"
         android:textAllCaps="false"
         android:textColor="#448AFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
+
+    <EditText
+        android:id="@+id/txtpassword"
+        android:layout_width="305dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>
