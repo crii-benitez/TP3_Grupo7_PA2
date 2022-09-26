@@ -24,13 +24,13 @@ public class ParkingActivity extends AppCompatActivity {
         SetParking(GetParkingBD());
     }
 
-    public void SetParking(ArrayList<Parking> parkingList)
+    private void SetParking(ArrayList<Parking> parkingList)
     {
         ParkingAdapter parkingAdapter = new ParkingAdapter(this, parkingList);
         gvParking.setAdapter(parkingAdapter);
     }
 
-    public ArrayList<Parking> GetParkingBD()
+    private ArrayList<Parking> GetParkingBD()
     {
         ArrayList<Parking> parkingList = new ArrayList<>();
 

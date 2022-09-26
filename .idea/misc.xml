@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/TUSI_local/PA2/TP3_Grupo7/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.1" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/drawable/myrect.xml" value="0.1945" />
@@ -20,9 +21,9 @@
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/layout/fragment_slideshow.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/layout/home_app.xml" value="0.1" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/layout/listview_parking.xml" value="0.22" />
-        <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/layout/nav_header_main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/layout/nav_header_main_menu.xml" value="0.18" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/layout/register_user.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/menu/activity_main_menu_drawer.xml" value="0.1" />
+        <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/menu/activity_main_menu_drawer.xml" value="0.5" />
         <entry key="..\:/Users/gaby-/Desktop/TP3_Grupo7_PA2/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/sbarzola/AndroidStudioProjects/TP3_Grupo7_PA2v2/app/src/main/res/layout/app_bar_home_app.xml" value="0.115625" />
