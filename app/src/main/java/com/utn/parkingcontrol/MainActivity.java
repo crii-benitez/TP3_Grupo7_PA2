@@ -3,6 +3,7 @@ package com.utn.parkingcontrol;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -90,6 +91,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void BuscarUser(View view) {
+        if (true)
+        {
+            Intent intent = new Intent(this, MainMenuActivity.class);
+            startActivity(intent);
+            return;
+        }
+
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
 
