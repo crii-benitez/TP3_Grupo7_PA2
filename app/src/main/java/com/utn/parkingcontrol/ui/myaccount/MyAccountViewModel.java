@@ -1,14 +1,14 @@
-package com.utn.parkingcontrol.ui.gallery;
+package com.utn.parkingcontrol.ui.myaccount;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class MyAccountViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public MyAccountViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

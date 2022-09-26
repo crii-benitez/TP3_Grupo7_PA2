@@ -1,4 +1,4 @@
-package com.utn.parkingcontrol.ui.gallery;
+package com.utn.parkingcontrol.ui.parking;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.utn.parkingcontrol.databinding.FragmentGalleryBinding;
+import com.utn.parkingcontrol.databinding.FragmentParkingBinding;
 
-public class GalleryFragment extends Fragment {
+public class ParkingFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentParkingBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        ParkingViewModel homeViewModel =
+                new ViewModelProvider(this).get(ParkingViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentParkingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

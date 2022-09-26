@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.utn.parkingcontrol.ui.home.HomeFragment"
+        android:name="com.utn.parkingcontrol.ui.parking.ParkingFragment"
         android:label="@string/menu_parking"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_parking" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.utn.parkingcontrol.ui.gallery.GalleryFragment"
+        android:name="com.utn.parkingcontrol.ui.myaccount.MyAccountFragment"
         android:label="@string/menu_myaccount"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_myaccount" />
 </navigation>
