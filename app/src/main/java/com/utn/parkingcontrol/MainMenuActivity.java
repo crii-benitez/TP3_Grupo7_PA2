@@ -59,6 +59,7 @@ public class MainMenuActivity extends AppCompatActivity {
         tvNameUser.setText(user.getName());
         tvEmailUser.setText(user.getEmail());
 
+        /*
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -71,7 +72,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
                 return true;
             }
-        });
+        });*/
     }
 
     @Override
