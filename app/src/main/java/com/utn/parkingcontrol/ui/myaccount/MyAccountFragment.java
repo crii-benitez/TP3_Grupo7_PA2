@@ -22,11 +22,12 @@ public class MyAccountFragment extends Fragment {
                 new ViewModelProvider(this).get(MyAccountViewModel.class);
 
         binding = FragmentMyaccountBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View view = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        //TextView textView = binding.tvDataAccount;
+        //galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        return view;
     }
 
     @Override

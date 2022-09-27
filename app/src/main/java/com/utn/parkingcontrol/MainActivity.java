@@ -14,13 +14,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText et_name, et_email, et_pass, et_pass2;
+    EditText txtUsuario, txtpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        txtUsuario = findViewById(R.id.txtUsuario);
+        txtpassword = findViewById(R.id.txtpassword);
     }
 
     public void RegisterActivity(View view) {
@@ -36,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Registrar(View view) {
-        et_name = (EditText) findViewById(R.id.editTextName);
-        et_email = (EditText) findViewById(R.id.editTextEmail);
-        et_pass = (EditText) findViewById(R.id.editTextPass);
-        et_pass2 = (EditText) findViewById(R.id.editTextPass2);
+        EditText et_name = (EditText) findViewById(R.id.editTextName);
+        EditText et_email = (EditText) findViewById(R.id.editTextEmail);
+        EditText et_pass = (EditText) findViewById(R.id.editTextPass);
+        EditText et_pass2 = (EditText) findViewById(R.id.editTextPass2);
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -91,9 +94,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void BuscarUser(View view) {
+
+        // TODO: QUITAR, ES SOLO PARA ACCEDER RAPIDO AL SIGUIENTE ACTIVITY.
         if (true)
         {
+            //TODO: QUITAR ESTE SETEO, ARMAR CON LO OBTENIDO EN LA BASE DE DATOS Y ENVIAR.
+            User user = new User(1, "GabrielRobledo", txtUsuario.getText().toString(), txtpassword.getText().toString());
+
+            /** No quitar estar parte
+             * Hay que enviarle el User obtenido en la base de datos si los datos ingresados son correctos.
+            */
             Intent intent = new Intent(this, MainMenuActivity.class);
+            intent.putExtra(PutExtraConst.UserKey, user);
             startActivity(intent);
             return;
         }
@@ -101,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
 
-        String name = et_name.getText().toString();
-        String pass = et_pass.getText().toString();
+        String name = txtUsuario.getText().toString();
+        String pass = txtpassword.getText().toString();
 
         if (!name.isEmpty() && !pass.isEmpty()) {
             Cursor fila = db.rawQuery
