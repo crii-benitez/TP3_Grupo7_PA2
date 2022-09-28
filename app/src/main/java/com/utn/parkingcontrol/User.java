@@ -3,26 +3,17 @@ package com.utn.parkingcontrol;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    public User(int idUser, String name, String email, String password)
+    public User( String name, String email, String password)
     {
-        this.IdUser = idUser;
         this.Name = name;
         this.Email = email;
         this.Password = password;
     }
 
-    private int IdUser;
     private String Name;
     private String Email;
     private String Password;
 
-    public int getIdUser() {
-        return IdUser;
-    }
-
-    public void setIdUser(int idUser) {
-        IdUser = idUser;
-    }
 
     public String getName() {
         return Name;

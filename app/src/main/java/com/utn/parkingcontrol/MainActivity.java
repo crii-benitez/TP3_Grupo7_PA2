@@ -84,31 +84,21 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
-    public void validarContrseña(String pass, String passSQL) {
-        if (pass.equals(passSQL)) {
+    public void validarContrseña(String pass, User user) {
+        if (pass.equals(user.getPassword())) {
             Toast.makeText(this, "Contraseña correcta", Toast.LENGTH_SHORT).show();
-            HomeApp();
+            Intent intent = new Intent(this, MainMenuActivity.class);
+            intent.putExtra(PutExtraConst.UserKey, user);
+            startActivity(intent);
+            return;
         } else {
-            Toast.makeText(this, "Contraseña incorrecta: ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Contraseña incorrecta: " , Toast.LENGTH_SHORT).show();
         }
     }
 
     public void BuscarUser(View view) {
 
-        // TODO: QUITAR, ES SOLO PARA ACCEDER RAPIDO AL SIGUIENTE ACTIVITY.
-        if (true)
-        {
-            //TODO: QUITAR ESTE SETEO, ARMAR CON LO OBTENIDO EN LA BASE DE DATOS Y ENVIAR.
-            User user = new User(1, "GabrielRobledo", txtUsuario.getText().toString(), txtpassword.getText().toString());
 
-            /** No quitar estar parte
-             * Hay que enviarle el User obtenido en la base de datos si los datos ingresados son correctos.
-            */
-            Intent intent = new Intent(this, MainMenuActivity.class);
-            intent.putExtra(PutExtraConst.UserKey, user);
-            startActivity(intent);
-            return;
-        }
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -118,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (!name.isEmpty() && !pass.isEmpty()) {
             Cursor fila = db.rawQuery
-                    ("select pass from users where name = '" + name + "'", null);
+                    ("select name,email,pass from users where name = '" + name + "'", null);
 
             if (fila.moveToFirst()) {
-                String passSQL = fila.getString(0);
-                validarContrseña(pass, passSQL);
+                User user = new User (fila.getString(0),fila.getString(1),fila.getString(2));
+                validarContrseña(pass, user);
             } else {
                 Toast.makeText(this, "No existe el usuario, debe registrarse", Toast.LENGTH_SHORT).show();
             }
