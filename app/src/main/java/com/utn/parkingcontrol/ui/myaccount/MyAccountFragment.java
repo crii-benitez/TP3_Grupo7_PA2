@@ -17,7 +17,10 @@ import com.utn.parkingcontrol.MainActivity;
 import com.utn.parkingcontrol.MainMenuActivity;
 import com.utn.parkingcontrol.PutExtraConst;
 import com.utn.parkingcontrol.R;
+import com.utn.parkingcontrol.User;
 import com.utn.parkingcontrol.databinding.FragmentMyaccountBinding;
+
+import org.w3c.dom.Text;
 
 public class MyAccountFragment extends Fragment {
 
@@ -34,8 +37,7 @@ public class MyAccountFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MyAccountViewModel galleryViewModel =
-                new ViewModelProvider(this).get(MyAccountViewModel.class);
+        MyAccountViewModel galleryViewModel = new ViewModelProvider(this).get(MyAccountViewModel.class);
 
         binding = FragmentMyaccountBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
@@ -45,6 +47,12 @@ public class MyAccountFragment extends Fragment {
 
         //TextView textView = binding.tvDataAccount;
         //galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        TextView txtNombre = (TextView) view.findViewById(R.id.txtNombre);
+        TextView txtCorreo = (TextView) view.findViewById(R.id.txtCorreo);
+        User user = (User)getActivity().getIntent().getSerializableExtra(PutExtraConst.UserKey);
+        txtNombre.setText(user.getName());
+        txtCorreo.setText(user.getEmail());
 
         return view;
     }

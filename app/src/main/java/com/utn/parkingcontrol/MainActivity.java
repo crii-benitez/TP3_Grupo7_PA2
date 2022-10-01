@@ -97,9 +97,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void BuscarUser(View view) {
-
-
-
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
 
