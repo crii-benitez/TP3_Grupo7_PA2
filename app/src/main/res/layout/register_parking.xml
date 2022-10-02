@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
 
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
@@ -15,6 +16,12 @@
         android:text="Registrar parqueo"
         android:textSize="34sp"
         android:gravity="center"/>
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/txtNroMatricula"
@@ -65,6 +72,7 @@
 
 
     </TableRow>
+
 
 
 
