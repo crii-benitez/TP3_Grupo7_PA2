@@ -2,6 +2,7 @@ package com.utn.parkingcontrol.ui.parking;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +23,9 @@ import com.utn.parkingcontrol.AdminSQLiteOpenHelper;
 import com.utn.parkingcontrol.Parking;
 import com.utn.parkingcontrol.ParkingAdapter;
 import com.utn.parkingcontrol.ParkingDialogAlert;
+import com.utn.parkingcontrol.PutExtraConst;
 import com.utn.parkingcontrol.R;
+import com.utn.parkingcontrol.User;
 import com.utn.parkingcontrol.databinding.FragmentParkingBinding;
 
 import java.util.ArrayList;
@@ -52,8 +55,9 @@ public class ParkingFragment extends Fragment {
         AgregarParking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                User user = (User)getActivity().getIntent().getSerializableExtra(PutExtraConst.UserKey);
                 Toast.makeText(v.getContext(),"llego", Toast.LENGTH_LONG).show();
-                ParkingDialogAlert.CreateAlertDialog(v.getContext(), lf).show();
+                ParkingDialogAlert.CreateAlertDialog(v.getContext(), lf,user).show();
             }
         });
 
@@ -71,17 +75,36 @@ public class ParkingFragment extends Fragment {
         ParkingAdapter parkingAdapter = new ParkingAdapter(context, parkingList);
         gvParking.setAdapter(parkingAdapter);
     }
+    public  void updateParking()
+    {
+        SetParking(GetParkingBD(), this.getContext());
+    }
 
     private ArrayList<Parking> GetParkingBD()
     {
+        User user = (User)getActivity().getIntent().getSerializableExtra(PutExtraConst.UserKey);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this.getContext(), "administracion", null, 1);
+        SQLiteDatabase db = admin.getWritableDatabase();
         ArrayList<Parking> parkingList = new ArrayList<>();
 
-        // TODO: Setear el list con los datos de la BD.
-        parkingList.add(new Parking(1, "ABC-332", "84122184"));
-        parkingList.add(new Parking(2, "BRF-121", "23144412"));
-        parkingList.add(new Parking(3, "PVC-552", "51244442"));
+        try{
+            Cursor fila = db.rawQuery
+                    ("select matricula,tiempo from parkings where user = '"+user.getName()+"'", null);
+
+            if (fila.moveToFirst()) {
+                 do {
+                    parkingList.add(new Parking(1, fila.getString(0), fila.getString(1)));
+                 } while (fila.moveToNext());
+               }
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(this.getContext(), "erro:"+e, Toast.LENGTH_SHORT).show();
+        }
+
 
         return parkingList;
     }
+
 
 }

@@ -10,9 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.utn.parkingcontrol.ui.parking.ParkingFragment;
+
+import java.util.function.Function;
+
 public class ParkingDialogAlert  {
 
-    public static AlertDialog CreateAlertDialog(Context context, LayoutInflater inflater) {
+    public static AlertDialog CreateAlertDialog(Context context, LayoutInflater inflater, User user ) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
@@ -47,6 +51,7 @@ public class ParkingDialogAlert  {
                     ContentValues registro = new ContentValues();
                     registro.put("matricula", matricula);
                     registro.put("tiempo", tiempo);
+                    registro.put("user", user.getName());
 
                     db.insert("parkings", null, registro);
 
