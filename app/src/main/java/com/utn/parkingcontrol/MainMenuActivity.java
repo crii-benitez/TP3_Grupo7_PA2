@@ -29,8 +29,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public User user;
 
+    public User getUsuario(){ return user;};
+
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainMenuBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +57,12 @@ public class MainMenuActivity extends AppCompatActivity {
 
         TextView tvNameUser = navigationView.getHeaderView(0).findViewById(R.id.tvNameUser);
         TextView tvEmailUser = navigationView.getHeaderView(0).findViewById(R.id.tvEmailUser);
+        TextView tvNameUserHome = navigationView.getHeaderView(0).findViewById(R.id.txtNameUserHome);
 
         user = (User)getIntent().getSerializableExtra(PutExtraConst.UserKey);
         tvNameUser.setText(user.getName());
         tvEmailUser.setText(user.getEmail());
+        tvNameUserHome.setText(user.getName());
 
         /*
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

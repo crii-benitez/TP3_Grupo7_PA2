@@ -22,7 +22,9 @@ import com.utn.parkingcontrol.AdminSQLiteOpenHelper;
 import com.utn.parkingcontrol.Parking;
 import com.utn.parkingcontrol.ParkingAdapter;
 import com.utn.parkingcontrol.ParkingDialogAlert;
+import com.utn.parkingcontrol.PutExtraConst;
 import com.utn.parkingcontrol.R;
+import com.utn.parkingcontrol.User;
 import com.utn.parkingcontrol.databinding.FragmentParkingBinding;
 
 import java.util.ArrayList;
@@ -74,12 +76,13 @@ public class ParkingFragment extends Fragment {
 
     private ArrayList<Parking> GetParkingBD()
     {
+        User user = (User)getActivity().getIntent().getSerializableExtra(PutExtraConst.UserKey);
         ArrayList<Parking> parkingList = new ArrayList<>();
 
         // TODO: Setear el list con los datos de la BD.
-        parkingList.add(new Parking(1, "ABC-332", "84122184"));
-        parkingList.add(new Parking(2, "BRF-121", "23144412"));
-        parkingList.add(new Parking(3, "PVC-552", "51244442"));
+        //   parkingList.add(new Parking(1, user.getName(), "84122184"));
+        //    parkingList.add(new Parking(2, "BRF-121", "23144412"));
+        //    parkingList.add(new Parking(3, "PVC-552", "51244442"));
 
         return parkingList;
     }

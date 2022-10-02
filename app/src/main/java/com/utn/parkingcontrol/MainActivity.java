@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private User usuario;
+    public User getUsuario(){ return usuario;};
+
     EditText txtUsuario, txtpassword;
 
     @Override
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void validarContrseña(String pass, User user) {
         if (pass.equals(user.getPassword())) {
+
+            usuario = new User (user.getName().toString(),user.getEmail().toString(),pass);
             Toast.makeText(this, "Contraseña correcta", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainMenuActivity.class);
             intent.putExtra(PutExtraConst.UserKey, user);
